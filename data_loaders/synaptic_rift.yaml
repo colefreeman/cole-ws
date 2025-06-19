@@ -1,0 +1,9 @@
+config:
+  start_date: 2021-01-01T00:00:00Z
+  user_agent: agent
+  realm_id: abcdefghijklmn
+  client_id: abcdefghijklmn
+  client_secret: 3rW9UXfC13iMutCuVDrrzxXikvxlP2qsEQwo2AWS
+  refresh_token: RT1-16-H0-1752474001g2vnyy3fafk9q3161nre
+source: quickbooks
+catalog: {}

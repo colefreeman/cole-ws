@@ -1,0 +1,6 @@
+connector_type: bigquery
+profile: default
+config:
+  table_id: lyrical-drive-439810-j7.mage_demos.kafka_crypto
+  auto_create_table: true
+  if_exists: "append"

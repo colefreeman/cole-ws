@@ -1,0 +1,66 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - dummy_export_test
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: fetch cryto kafka data
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: fetch_cryto_kafka_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/dummy_export_test.yaml
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: dummy_export_test
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - fetch_cryto_kafka_data
+  uuid: dummy_export_test
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-06-18 18:26:55.978284+00:00'
+created_by: freem124
+data_integration: null
+description: This is a demo of how to stream data from Kafka to BigQuery
+execution_framework: standard
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: 'Kafka demo '
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags:
+- cole
+- demo
+- streaming
+type: streaming
+uuid: kafka_demo_
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

@@ -1,0 +1,14 @@
+mage_dbt_demos:
+  outputs:
+    dev:
+      dataset: mage_demos
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /home/src/cole-ws/google_credential_storage.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: lyrical-drive-439810-j7
+      threads: 4
+      type: bigquery
+  target: dev

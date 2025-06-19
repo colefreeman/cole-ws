@@ -1,0 +1,5 @@
+transformer_type: window_aggregation
+method: time
+type: tumbling
+interval_window: 60 # seconds
+advance_window: 10

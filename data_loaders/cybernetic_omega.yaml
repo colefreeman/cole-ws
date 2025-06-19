@@ -1,0 +1,5 @@
+config:
+  account_id: "{{ mage_secret_var('stripe_account_id') }}"
+  client_secret: "{{ mage_secret_var('stripe_test_secret') }}"
+  start_date: 2022-01-01
+source: stripe
