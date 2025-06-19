@@ -3,7 +3,7 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - dummy_export_test
+  - calculate_direction_trade_values
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -15,6 +15,25 @@ blocks:
   type: data_loader
   upstream_blocks: []
   uuid: fetch_cryto_kafka_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: transformers/calculate_direction_trade_values.py
+  downstream_blocks:
+  - dummy_export_test
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: calculate_direction_trade_values
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - fetch_cryto_kafka_data
+  uuid: calculate_direction_trade_values
 - all_upstream_blocks_executed: false
   color: null
   configuration:
@@ -31,7 +50,7 @@ blocks:
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - fetch_cryto_kafka_data
+  - calculate_direction_trade_values
   uuid: dummy_export_test
 cache_block_output_in_memory: false
 callbacks: []
