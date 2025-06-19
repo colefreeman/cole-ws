@@ -10,12 +10,12 @@ blocks:
   language: python
   name: fetch great attractor pdf
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: fetch_great_attractor_pdf
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
@@ -32,7 +32,7 @@ blocks:
   upstream_blocks:
   - fetch_great_attractor_pdf
   uuid: clean_and_format_pdf_text
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
@@ -49,24 +49,24 @@ blocks:
   upstream_blocks:
   - clean_and_format_pdf_text
   uuid: chunk_pdf_text
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
-  - print_response
+  - export_attractor_response
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: interact with anthropic
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - chunk_pdf_text
   uuid: interact_with_anthropic
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -74,14 +74,14 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: print response
+  name: export attractor response
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - interact_with_anthropic
-  uuid: print_response
+  uuid: export_attractor_response
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
