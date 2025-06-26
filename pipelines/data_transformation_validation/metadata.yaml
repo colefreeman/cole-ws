@@ -3,69 +3,69 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - calculate_direction_trade_values
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: yaml
-  name: fetch cryto kafka data
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: fetch_cryto_kafka_data
-- all_upstream_blocks_executed: false
-  color: null
-  configuration:
-    file_source:
-      path: transformers/calculate_direction_trade_values.py
-  downstream_blocks:
-  - export_crypto_to_bigquery
+  - transform_data_322
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: calculate_direction_trade_values
+  name: Load Data
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_data_322
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - export_data_322
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Transform Data
   retry_config: null
   status: not_executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - fetch_cryto_kafka_data
-  uuid: calculate_direction_trade_values
+  - load_data_322
+  uuid: transform_data_322
 - all_upstream_blocks_executed: false
   color: null
-  configuration:
-    file_source:
-      path: data_exporters/export_crypto_to_bigquery.yaml
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: yaml
-  name: export_crypto_to_bigquery
+  language: python
+  name: Export Data
   retry_config: null
   status: not_executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - calculate_direction_trade_values
-  uuid: export_crypto_to_bigquery
+  - transform_data_322
+  uuid: export_data_322
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2025-06-18 18:26:55.978284+00:00'
+created_at: '2025-06-24 20:28:18.714497+00:00'
 created_by: freem124
 data_integration: null
-description: This is a demo of how to stream data from Kafka to BigQuery
-execution_framework: standard
+description: The code tests the execution of a data transformer block within a data
+  pipeline, specifically validating that the block correctly loads data from azure
+  blob storage, processes it, and exports the transformed dataframe. the overall purpose
+  of the pipeline is to facilitate the extraction, transformation, and loading (etl)
+  of account user data, ensuring data integrity and proper integration with storage
+  systems.
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: 'Kafka demo '
+name: Data Transformation Validation
 notification_config: {}
 overrides: null
 remote_variables_dir: null
@@ -75,11 +75,8 @@ settings:
   triggers: null
 spark_config: {}
 state_store_config: {}
-tags:
-- cole
-- demo
-- streaming
-type: streaming
-uuid: kafka_demo_
+tags: []
+type: python
+uuid: data_transformation_validation
 variables_dir: /home/src/mage_data/cole-ws
 widgets: []
