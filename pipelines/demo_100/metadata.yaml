@@ -3,69 +3,63 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - calculate_direction_trade_values
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: yaml
-  name: fetch cryto kafka data
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: fetch_cryto_kafka_data
-- all_upstream_blocks_executed: false
-  color: null
-  configuration:
-    file_source:
-      path: transformers/calculate_direction_trade_values.py
-  downstream_blocks:
-  - export_crypto_to_bigquery
+  - resplendent_magic
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: calculate_direction_trade_values
+  name: endearing sumo
   retry_config: null
   status: not_executed
   timeout: null
-  type: transformer
-  upstream_blocks:
-  - fetch_cryto_kafka_data
-  uuid: calculate_direction_trade_values
+  type: data_loader
+  upstream_blocks: []
+  uuid: endearing_sumo
 - all_upstream_blocks_executed: false
   color: null
-  configuration:
-    file_source:
-      path: data_exporters/export_crypto_to_bigquery.yaml
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: yaml
-  name: export_crypto_to_bigquery
+  language: python
+  name: resplendent magic
   retry_config: null
   status: not_executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - calculate_direction_trade_values
-  uuid: export_crypto_to_bigquery
+  - endearing_sumo
+  uuid: resplendent_magic
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
-conditionals: []
-created_at: '2025-06-18 18:26:55.978284+00:00'
+conditionals:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: original crafter
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: conditional
+  upstream_blocks: []
+  uuid: original_crafter
+created_at: '2025-06-23 14:45:40.163659+00:00'
 created_by: freem124
 data_integration: null
-description: This is a demo of how to stream data from Kafka to BigQuery
+description: fmkdlsa;nflk
 execution_framework: standard
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: 'Kafka demo '
+name: Demo 100
 notification_config: {}
 overrides: null
 remote_variables_dir: null
@@ -77,9 +71,7 @@ spark_config: {}
 state_store_config: {}
 tags:
 - cole
-- demo
-- streaming
-type: streaming
-uuid: kafka_demo_
+type: python
+uuid: demo_100
 variables_dir: /home/src/mage_data/cole-ws
 widgets: []

@@ -1,58 +1,53 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file:
-      path: /home/src/cole-ws/data_loaders/dauntless_talisman.py
+  configuration: {}
   downstream_blocks:
-  - sql_demo
+  - validation_of_input_data_a4a
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: dauntless talisman
+  name: Azure Blob Storage Load and Validate
   retry_config: null
   status: not_executed
   timeout: null
-  type: data_loader
+  type: transformer
   upstream_blocks: []
-  uuid: dauntless_talisman
+  uuid: azure_blob_storage_load_and_validate_a4a
 - all_upstream_blocks_executed: false
   color: null
-  configuration:
-    dbt: {}
-    disable_query_preprocessing: false
-    export_write_policy: append
-    file:
-      path: /home/src/cole-ws/transformers/sql_demo.sql
-    limit: 1000
-    use_raw_sql: true
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: sql
-  name: sql demo
+  language: python
+  name: Validation of Input Data
   retry_config: null
-  status: updated
+  status: not_executed
   timeout: null
-  type: transformer
+  type: custom
   upstream_blocks:
-  - dauntless_talisman
-  uuid: sql_demo
+  - azure_blob_storage_load_and_validate_a4a
+  uuid: validation_of_input_data_a4a
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2025-06-19 18:32:42.948526+00:00'
+created_at: '2025-06-24 20:26:38.816451+00:00'
 created_by: freem124
 data_integration: null
-description: demo pipeline
+description: The data pipeline is designed to process and synchronize customer account
+  user data by extracting information from azure blob storage, transforming it with
+  custom logic, and loading it into the specified database schema and table. the pipeline
+  ensures data validation through mage's unit testing framework, with a focus on verifying
+  input data expectations and output correctness across transformation blocks.
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: 'demo pipeline '
+name: Azure Blob Storage Mock Test
 notification_config: {}
 overrides: null
 remote_variables_dir: null
@@ -62,9 +57,8 @@ settings:
   triggers: null
 spark_config: {}
 state_store_config: {}
-tags:
-- cole
+tags: []
 type: python
-uuid: demo_pipeline_
+uuid: azure_blob_storage_mock_test
 variables_dir: /home/src/mage_data/cole-ws
 widgets: []
