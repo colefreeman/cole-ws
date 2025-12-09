@@ -1,0 +1,70 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - update_mage_sources_yaml_6a3
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Create Data Source Definitions
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: create_data_source_definitions_6a3
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Update Mage Sources YAML
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - create_data_source_definitions_6a3
+  uuid: update_mage_sources_yaml_6a3
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-14 17:36:09.149920+00:00'
+created_by: freem124
+data_integration: null
+description: Mage pro automatically manages source definitions for upstream blocks
+  connected to dbt models, regardless of the orchestration or data processing framework
+  used, such as airflow, airbyte, databricks, spark, dask, or kafka. when these frameworks
+  interface with mage, it generates and updates `mage_sources.yml` with established
+  source references, enabling seamless data lineage tracking and ensuring dbt models
+  correctly reference upstream data through the `source()` function, thus maintaining
+  consistent and automated pipeline dependencies without manual intervention.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Data Pipeline Integration Best Practices
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: data_pipeline_integration_best_practices
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

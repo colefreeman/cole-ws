@@ -1,0 +1,21 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_Chicago_Land_Crime_Data
+  schema: crimes
+  tables:
+  - description: Dataframe for block `fetch_crimes_data` of the `chicago_crimes_dbt`
+      mage pipeline.
+    identifier: mage_chicago_crimes_dbt_fetch_crimes_data
+    meta:
+      block_uuid: fetch_crimes_data
+      pipeline_uuid: chicago_crimes_dbt
+    name: chicago_crimes_dbt_fetch_crimes_data
+  - description: Dataframe for block `fetch_chi_crimes_data` of the `chi_crimes_dbt`
+      mage pipeline.
+    identifier: mage_chi_crimes_dbt_fetch_chi_crimes_data
+    meta:
+      block_uuid: fetch_chi_crimes_data
+      pipeline_uuid: chi_crimes_dbt
+    name: chi_crimes_dbt_fetch_chi_crimes_data
+version: 2

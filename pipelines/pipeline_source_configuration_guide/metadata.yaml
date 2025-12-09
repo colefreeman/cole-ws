@@ -1,0 +1,89 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - process_data_dcd
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Connect Upstream Data Source
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: connect_upstream_data_source_dcd
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - export_data_dcd
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Process Data
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - connect_upstream_data_source_dcd
+  uuid: process_data_dcd
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Export Data
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - process_data_dcd
+  uuid: export_data_dcd
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-16 16:48:21.228506+00:00'
+created_by: freem124
+data_integration: null
+description: This data pipeline orchestrates the movement, transformation, and analysis
+  of data across multiple sources and processing frameworks, integrating tools such
+  as airflow, prefect, luigi, and flyte for workflow management, along with various
+  data storage solutions like bigquery, redshift, and snowflake. it facilitates real-time
+  streaming, batch processing, and data cataloging, enabling seamless data ingestion,
+  processing, and visualization, while maintaining robust data governance and lineage
+  across diverse cloud and on-premises environments.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Pipeline source configuration guide
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: pipeline_source_configuration_guide
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

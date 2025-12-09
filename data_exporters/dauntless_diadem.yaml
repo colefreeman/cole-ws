@@ -1,0 +1,8 @@
+config:
+  access_token: null
+  catalog: null
+  http_path: null
+  schema: null
+  server_hostname: null
+  skip_schema_creation: null
+destination: databricks

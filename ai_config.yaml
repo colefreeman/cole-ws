@@ -1,0 +1,41 @@
+data:
+  all: true
+rag:
+  files:
+    exclude:
+    - .DS_Store
+    - .ai
+    - .cache
+    - .deployments/instances/
+    - .file_versions
+    - .gitkeep
+    - .log
+    - .logs/
+    - .mage_temp_profiles
+    - .operation_history
+    - .preferences.yaml
+    - .profiles_*
+    - .ssh_tunnel
+    - .variables/
+    - __pycache__/
+    - docker-compose.override.yml
+    - example.db
+    - example.duckdb
+    - logs/
+    - mage-ai.db
+    - mage_data/
+    - secrets/
+    - google_credential_storage.json
+    include: []
+  folders:
+    exclude: []
+    include:
+    - /home/src/cole-ws/callbacks
+    - /home/src/cole-ws/custom
+    - /home/src/cole-ws/data_exporters
+    - /home/src/cole-ws/data_loaders
+    - /home/src/cole-ws/dbt
+    - /home/src/cole-ws/extensions
+    - /home/src/cole-ws/sensors
+    - /home/src/cole-ws/transformers
+    - /home/src/cole-ws/utils

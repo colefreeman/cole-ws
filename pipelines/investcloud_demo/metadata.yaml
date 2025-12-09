@@ -1,0 +1,78 @@
+blocks:
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - intergalactic_elysium
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: righteous moon
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - transcendent_crucible
+  uuid: righteous_moon
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: intergalactic elysium
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - righteous_moon
+  uuid: intergalactic_elysium
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - righteous_moon
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: transcendent crucible
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: transcendent_crucible
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-08-05 13:46:38.058225+00:00'
+created_by: freem124
+data_integration: null
+description: Sync data between APIs, databases, and other sources.
+execution_framework: standard
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Investcloud demo
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: integration
+uuid: investcloud_demo
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

@@ -1,0 +1,134 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: markdowns/documentation_for_card_api_data_loader.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for card API data loader
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_card_api_data_loader
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_loaders/load_magic_the_gathering_card_api_data.py
+  downstream_blocks:
+  - export_card_data_to_sqlite
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load Magic the Gathering card API data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_magic_the_gathering_card_api_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: markdowns/documentation_for_card_api_data_exporter.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for card API data exporter
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_card_api_data_exporter
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_exporters/export_card_data_to_sqlite.py
+  downstream_blocks:
+  - inspect_magic_cards_sqlite_table
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Export card data to SQLite
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_magic_the_gathering_card_api_data
+  uuid: export_card_data_to_sqlite
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: markdowns/validate_card_data_persistence.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Validate card data persistence
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: validate_card_data_persistence
+- all_upstream_blocks_executed: false
+  color: teal
+  configuration:
+    file_path: custom/inspect_magic_cards_sqlite_table.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Inspect Magic cards SQLite table
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - export_card_data_to_sqlite
+  uuid: inspect_magic_cards_sqlite_table
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-01 20:43:48.532674+00:00'
+created_by: null
+data_integration: null
+description: Load Magic the Gathering card data, transform columns, and export analysis
+  to a database.
+execution_framework: standard
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: ETL pipeline ethereal animus
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags:
+- example
+- etl
+- tutorial
+- api
+type: python
+uuid: etl_pipeline_ethereal_animus
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

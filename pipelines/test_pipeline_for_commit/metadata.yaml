@@ -1,0 +1,8 @@
+created_at: '2025-12-09 14:34:02.548959+00:00'
+created_by: freem124
+description: Build your own custom data pipeline from a blank canvas.
+execution_framework: standard
+name: test pipeline for commit
+tags: []
+type: python
+uuid: test_pipeline_for_commit

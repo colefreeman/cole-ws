@@ -1,0 +1,19 @@
+# profiles.yml configuration for dbt connection
+# This file should be placed inside your 'dbt' directory
+# It uses environment variables for sensitive credentials for security
+
+your_profile_name:  # Replace with your actual profile name
+  target: dev  # Default target environment
+  outputs:
+    dev:
+      type: postgres  # Change to your data warehouse type: snowflake, bigquery, redshift, etc.
+      host: "{{ env_var('DB_HOST') }}"  # Data warehouse host, fetched from environment variable
+      user: "{{ env_var('DB_USER') }}"  # Username, fetched from environment variable
+      password: "{{ env_var('DB_PASSWORD') }}"  # Password, fetched from environment variable
+      dbname: "{{ env_var('DB_NAME') }}"  # Database name
+      schema: "{{ env_var('DB_SCHEMA') }}"  # Schema name
+      port: "{{ env_var('DB_PORT') }}"  # Port number
+      # Optional: specify threads for parallel execution
+      threads: 4
+      # Optional: specify SSL mode if needed
+      # ssl_mode: require

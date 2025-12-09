@@ -1,40 +1,20 @@
--- Docs: https://docs.mage.ai/guides/sql-blocks
--- Strategic backfill: Fix data quality issues incrementally
-WITH affected_partitions AS (
-    -- Step 1: Investigate scope of data quality issues
-    SELECT 
-        DATE(created_at) as partition_date,
-        COUNT(*) as total_records,
-        COUNT(CASE WHEN player_name IS NULL THEN 1 END) as null_names,
-        ROUND(COUNT(CASE WHEN player_name IS NULL THEN 1 END) * 100.0 / COUNT(*), 2) as null_percentage
-    FROM raw_golf_scores 
-    WHERE created_at >= '2024-01-01'
-    GROUP BY DATE(created_at)
-    HAVING null_percentage > 5  -- Flag problematic partitions
-),
-clean_backfill_data AS (
-    -- Step 2: Apply fixed logic with proper validation
-    SELECT 
-        player_id, 
-        player_name, 
-        score, 
-        created_at,
-        'BACKFILLED' as data_quality_flag
-    FROM raw_golf_scores r
-    INNER JOIN affected_partitions ap 
-        ON DATE(r.created_at) = ap.partition_date
-    WHERE r.player_name IS NOT NULL 
-      AND r.score BETWEEN 50 AND 150  -- Business rule validation
-      AND DATE(r.created_at) = '2024-01-15'  -- Test single partition first
+WITH source_with_hash AS (
+  SELECT *,
+    SHA256(CONCAT(
+      COALESCE(player_name, 'NULL'),
+      COALESCE(CAST(score AS STRING), 'NULL'),
+      COALESCE(event_date, 'NULL')
+    )) as row_hash
+  FROM golf_api_raw 
+  WHERE event_date BETWEEN '2024-06-01' AND '2024-06-07'
 )
--- Step 3: Insert clean data incrementally
-INSERT INTO clean_golf_scores 
-SELECT player_id, player_name, score, created_at
-FROM clean_backfill_data;
 
--- Validate results
-SELECT 
-    COUNT(*) as backfilled_records,
-    COUNT(CASE WHEN player_name IS NULL THEN 1 END) as remaining_nulls
-FROM clean_golf_scores 
-WHERE DATE(created_at) = '2024-01-15';
+MERGE golf_clean_fact t
+USING source_with_hash s
+ON t.player_name = s.player_name 
+   AND t.event_date = s.event_date
+WHEN MATCHED AND t.row_hash != s.row_hash THEN
+  UPDATE SET score = s.score, updated_at = CURRENT_TIMESTAMP()
+WHEN NOT MATCHED THEN
+  INSERT (player_name, score, event_date, row_hash)
+  VALUES (s.player_name, s.score, s.event_date, s.row_hash)

@@ -1,0 +1,8 @@
+config:
+  path_to_credentials_json_file: path_to_credentials_json_file
+  project_id: null
+  dataset: null
+  location: null
+  disable_update_column_types: null
+  use_batch_load: true
+destination: bigquery

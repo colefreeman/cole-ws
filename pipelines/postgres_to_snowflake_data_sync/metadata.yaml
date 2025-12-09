@@ -1,0 +1,7 @@
+created_at: '2025-07-25 21:15:57.601489+00:00'
+created_by: admin
+description: null
+name: Postgres to Snowflake Data Sync
+tags: []
+type: integration
+uuid: postgres_to_snowflake_data_sync

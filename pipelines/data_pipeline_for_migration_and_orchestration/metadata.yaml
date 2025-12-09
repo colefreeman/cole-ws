@@ -1,0 +1,110 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - configure_profiles_8d5
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Clone Your DbT Repo
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: clone_your_dbt_repo_8d5
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - connect_upstream_blocks_8d5
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: Configure Profiles
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - clone_your_dbt_repo_8d5
+  uuid: configure_profiles_8d5
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - run_dbt_models_8d5
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Connect Upstream Blocks
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - configure_profiles_8d5
+  uuid: connect_upstream_blocks_8d5
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Run DbT Models
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - connect_upstream_blocks_8d5
+  uuid: run_dbt_models_8d5
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-14 17:47:57.798635+00:00'
+created_by: freem124
+data_integration: null
+description: This migration process involves cloning or updating the existing dbt
+  project repository into the mage pro environment, ensuring all assets are present
+  and properly structured. once integrated, upstream mage blocks—such as airflow,
+  dagster, prefect, or other orchestration tools—are connected to the dbt block within
+  mage, which automatically manages source references and lineage by generating the
+  `mage_sources.yml` configuration. the pipeline’s execution order, data dependencies,
+  and source references are handled seamlessly by mage, with minimal manual intervention,
+  enabling a consistent, version-controlled, and orchestrated data transformation
+  workflow that bridges multiple tools and cloud platforms for end-to-end data processing.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Data Pipeline for Migration and Orchestration
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: data_pipeline_for_migration_and_orchestration
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

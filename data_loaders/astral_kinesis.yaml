@@ -1,3 +1,4 @@
 config:
   api_endpoint: https://api.spacexdata.com/v4/launches/upcoming
 source: spacex_api
+catalog: {}

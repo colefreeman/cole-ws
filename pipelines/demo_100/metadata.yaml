@@ -3,7 +3,7 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - resplendent_magic
+  - dq_backfill
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -17,44 +17,37 @@ blocks:
   uuid: endearing_sumo
 - all_upstream_blocks_executed: false
   color: null
-  configuration: {}
+  configuration:
+    data_provider: bigquery
+    data_provider_profile: default
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file:
+      path: /home/src/cole-ws/transformers/dq_backfill.sql
+    limit: 1000
+    use_raw_sql: true
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: python
-  name: resplendent magic
+  language: sql
+  name: DQ Backfill
   retry_config: null
-  status: not_executed
+  status: updated
   timeout: null
-  type: data_exporter
+  type: transformer
   upstream_blocks:
   - endearing_sumo
-  uuid: resplendent_magic
+  uuid: dq_backfill
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
-conditionals:
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: original crafter
-  retry_config: null
-  status: not_executed
-  timeout: null
-  type: conditional
-  upstream_blocks: []
-  uuid: original_crafter
+conditionals: []
 created_at: '2025-06-23 14:45:40.163659+00:00'
 created_by: freem124
 data_integration: null
 description: fmkdlsa;nflk
-execution_framework: standard
 executor_config: {}
 executor_count: 1
 executor_type: null
