@@ -1,0 +1,10 @@
+config:
+  developer_token: null
+  oauth_client_id: null
+  oauth_client_secret: null
+  refresh_token: null
+  start_date: 2020-01-01T00:00:00Z
+  login_customer_ids:
+    - customerId: ""
+      loginCustomerId: null
+source: google_ads

@@ -1,0 +1,92 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dynamic:
+      modes:
+      - poll_interval: 1
+        type: stream
+      parent: true
+    file_path: data_loaders/dynamic_parent_producer.py
+  downstream_blocks:
+  - concurrent_transformations
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Dynamic parent producer
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: dynamic_parent_producer
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dynamic:
+      modes:
+      - poll_interval: 1
+        type: stream
+      reduce_output: true
+    file_path: transformers/concurrent_transformations.py
+  downstream_blocks:
+  - reduce_output_from_dynamic_blocks
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Concurrent transformations
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - dynamic_parent_producer
+  uuid: concurrent_transformations
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_path: data_exporters/reduce_output_from_dynamic_blocks.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Reduce output from dynamic blocks
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - concurrent_transformations
+  uuid: reduce_output_from_dynamic_blocks
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-22 13:22:42.891205+00:00'
+created_by: null
+data_integration: null
+description: Execute highly concurrent code block variants that are generated at pipeline
+  runtime.
+execution_framework: standard
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Dynamic blocks elemental artifact
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: dynamic_blocks_elemental_artifact
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

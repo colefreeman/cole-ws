@@ -1,0 +1,49 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Remove np.float_ reference
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: remove_np_float__reference_c27
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-11 12:15:40.331304+00:00'
+created_by: freem124
+data_integration: null
+description: This data pipeline processes and validates numerical data by identifying
+  data types, ensuring compatibility with numpy 2.0, and updating deprecated references
+  such as np.float_. it maintains robust data handling workflows, ensuring smooth
+  execution and compatibility across different numpy versions, thereby supporting
+  seamless data transformations and analyses.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: NumPy Compatibility Fix
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: numpy_compatibility_fix
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

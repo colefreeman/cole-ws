@@ -1,0 +1,105 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - add_public_ssh_key_to_github_609
+  - configure_git_to_use_ssh_key_609
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Generate User SSH Keys
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: generate_user_ssh_keys_609
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Add Public SSH Key to GitHub
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - generate_user_ssh_keys_609
+  uuid: add_public_ssh_key_to_github_609
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - perform_git_operations_609
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Configure Git to Use SSH Key
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - generate_user_ssh_keys_609
+  uuid: configure_git_to_use_ssh_key_609
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Perform Git Operations
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - configure_git_to_use_ssh_key_609
+  uuid: perform_git_operations_609
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-10 14:21:54.065235+00:00'
+created_by: freem124
+data_integration: null
+description: Each user in a mage workspace can generate and use their own ssh key
+  for accessing the same github repository, ensuring individual authentication and
+  traceability. this setup allows secure, per-user access without sharing ssh credentials,
+  facilitating collaborative development and clear attribution of git operations.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Individual SSH Keys for Users
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: individual_ssh_keys_for_users
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

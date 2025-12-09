@@ -1,0 +1,87 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - reference_sources_in_dbt_models_847
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Verify and Check Upstream Blocks
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: verify_and_check_upstream_blocks_847
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks:
+  - run_and_validate_dbt_models_847
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: Reference Sources in dbt Models
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - verify_and_check_upstream_blocks_847
+  uuid: reference_sources_in_dbt_models_847
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Run and Validate dbt Models
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - reference_sources_in_dbt_models_847
+  uuid: run_and_validate_dbt_models_847
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-16 16:50:20.099169+00:00'
+created_by: freem124
+data_integration: null
+description: This section details how mage pro dynamically manages source links between
+  upstream pipeline blocks and dbt models through the `mage_sources.yml` file. it
+  explains how to verify, reference, and update source mappings within your dbt models
+  in response to pipeline changes, ensuring consistent and accurate data relationships
+  without manual yaml edits.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Make On The Fly Data Sources
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: make_on_the_fly_data_sources
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []

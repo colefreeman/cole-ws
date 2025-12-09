@@ -1,0 +1,50 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file: {}
+    file_source: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: replace_numpy_float_type
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: replace_numpy_float_type_205
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-07-11 11:39:11.870858+00:00'
+created_by: freem124
+data_integration: null
+description: The data pipeline is designed to facilitate seamless data processing
+  and transformation within the mage framework, focusing on serializing complex data
+  types by converting deprecated numpy types like `np.float_` to their modern counterparts
+  such as `np.float64`. it ensures compatibility with numpy 2.0, enabling accurate
+  data serialization and downstream analysis, ultimately supporting model training
+  or data visualization tasks.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: NumPy 2.0 Compatibility Fix
+notification_config: {}
+overrides: null
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+state_store_config: {}
+tags: []
+type: python
+uuid: numpy_2_0_compatibility_fix
+variables_dir: /home/src/mage_data/cole-ws
+widgets: []
